@@ -1,0 +1,2 @@
+# translateapp
+Rails Translate App
