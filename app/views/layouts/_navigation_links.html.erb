@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <li><%= link_to 'Edit Your Profile EDIT NAVLINKSHTMLERB', root_path %></li>
+  <li><%= link_to 'Log Out EDIT NAVLINKSHTMLERB', root_path %></li>
+<% else %>
+  <li><%= link_to 'Log In EDIT NAVLINKSHTMLERB', root_path %></li>
+  <li><%= link_to 'Join TranslateApp EDIT NAVLINKSHTMLERB', root_path %></li>
+<% end %>
