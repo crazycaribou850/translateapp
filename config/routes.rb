@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :languages
   root to: "home#index"
+  resources :languages
+  resources :playlists
+  get '/languages/:id/:language_id', to: 'languages#adopthelper', as: 'adopthelper'
+  patch '/languages/:id/:language_id/', to: 'languages#adopt', as: 'adopt'
 end

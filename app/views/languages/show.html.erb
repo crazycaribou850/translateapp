@@ -1,9 +1,11 @@
 <h1> <%= @language.name %> PLAYLISTS </h1>
 
 <% @language.playlists.each do |t| %>
-  <%= t.name %>
-  <%= t.description %>
-  <%= t.usercount %>
-  <%= button_to "Check me out!", playlist_path(id: t.id), :method => :get %> <br/>
-  <%= button_to "Adopt me!", post(id: t.id), :method => :get %> <br/>
+  <h3><%= t.name %></h3>
+  Description: <%= t.description %> <br/>
+  Hits: <%= t.usercount %>
+  <%= button_to "Check me out!", playlist_path(id: t.id), :method => :get %>
+  <% if user_signed_in? %>
+    <%= button_to "Adopt me!", adopt_path(t.id, @language.id), :method => :patch %> <br/>
+  <% end %>
 <% end %>
