@@ -15,6 +15,11 @@ class PlaylistsController < ApplicationController
     redirect_to user_path(params[:id])
   end
 
+  def edit
+     @playlist = Playlist.find(params[:id])
+
+  end
+
 private
   def playlist_params
     params.require(:playlist).permit(:name, :description, :language_id)
