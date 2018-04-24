@@ -1,9 +1,19 @@
 <h1><%= current_user.name %>'s Profile</h1>
 <h3>Playlists</h3> <%= link_to 'Create new', new_playlist_path %> <br/>
 <br/>
+<h4>Created:</h4>
+<% current_user.playlists.each do |t| %>
+  <% if t.creater_id == current_user.id %>
+  Name: <%= t.name %> <br/>
+    Description: <%= t.description %> <br/>
+    <%= link_to 'Edit playlist', root_path %> <br/> <br/>
+  <% end %>
+<% end %>
+
 <h4>Adopted:</h4>
 <% current_user.playlists.each do |t| %>
+  <% if t.creater_id != current_user.id %>
   Name: <%= t.name %> <br/>
-  Description: <%= t.description %> <br/>
-  <%= link_to 'Edit playlist', root_path %> ==> note: this button should only be present for self made playlists; but for now it's all <br/> <br/>
+    Description: <%= t.description %> <br/>
+  <% end %>
 <% end %>
