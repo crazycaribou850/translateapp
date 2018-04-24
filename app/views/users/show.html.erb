@@ -6,7 +6,7 @@
   <% if t.creater_id == current_user.id %>
   Name: <%= t.name %> <br/>
     Description: <%= t.description %> <br/>
-    <%= link_to 'Edit playlist', edit_playlist_path %> <br/> <br/>
+    <%= link_to 'Edit playlist', edit_playlist_path(t.id) %> <br/> <br/>
   <% end %>
 <% end %>
 

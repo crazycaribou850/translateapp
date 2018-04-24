@@ -10,6 +10,7 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.create(playlist_params)
     @playlist.creater_id = current_user.id
+    @playlist.usercount = 1
     @playlist.save
     current_user.playlists << @playlist
     redirect_to user_path(params[:id])
@@ -21,7 +22,7 @@ class PlaylistsController < ApplicationController
 
   def update
     @playlist = Playlist.find(params[:id])
-    @playlist.update(name: params[:name], description: params[:description], language_id: params[:language_id])
+    @playlist.update(name: params[:playlist][:name], description: params[:playlist][:description], language_id: params[:playlist][:language_id])
     redirect_to user_path(current_user.id)
   end
 
