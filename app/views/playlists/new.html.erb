@@ -1,5 +1,6 @@
 <%= simple_form_for(@playlist, url: playlist_create_path(current_user.id)) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
+  <%= f.input :language_id %>
   <%= f.button :submit %>
 <% end %>

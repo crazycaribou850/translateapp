@@ -5,5 +5,5 @@
 <% current_user.playlists.each do |t| %>
   Name: <%= t.name %> <br/>
   Description: <%= t.description %> <br/>
-  <%= link_to 'Edit playlist', root_path %> ==> note: this button should only be present for self made playlists; but for now it's all
+  <%= link_to 'Edit playlist', root_path %> ==> note: this button should only be present for self made playlists; but for now it's all <br/> <br/>
 <% end %>

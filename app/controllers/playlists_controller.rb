@@ -9,7 +9,6 @@ class PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.create(playlist_params)
-    # need to add language to playlist!!!
     @playlist.save
     current_user.playlists << @playlist
     redirect_to user_path(params[:id])
@@ -17,6 +16,6 @@ class PlaylistsController < ApplicationController
 
 private
   def playlist_params
-    params.require(:playlist).permit(:name, :description, :language)
+    params.require(:playlist).permit(:name, :description, :language_id)
   end
 end
