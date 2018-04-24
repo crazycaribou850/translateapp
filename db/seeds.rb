@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# languages take in "name"
+[['Chinese'], ['French'], ['Japanese'], ['Malay'], ['Spanish']].each do |name|
+  Language.create(
+    name: name,
+  )
+end
+
+# Playlists take in "name", "description", "user count (default 0)", and "language ID"
+[['Polite Chinese', "List of polite chinese words", 1 ], ['Rude Chinese', "List of rude chinese words", 1], ['Le French Words', "French playlist!", 2], ['Nihon-go for beginners', "NIHONNESE", 3]].each do |name, description, lid|
+  Playlist.create(
+    name: name,
+    description: description,
+    usercount: 0,
+    language_id: lid,
+  )
+end
