@@ -22,7 +22,7 @@ class PlaylistsController < ApplicationController
   def update
     @playlist = Playlist.find(params[:id])
     @playlist.update(name: params[:name], description: params[:description], language_id: params[:language_id])
-    redirect_to playlist_path(@playlist)
+    redirect_to user_path(current_user.id)
   end
 
 private
