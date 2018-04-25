@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424022712) do
+ActiveRecord::Schema.define(version: 20180424095544) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180424022712) do
     t.datetime "updated_at", null: false
     t.integer "language_id"
     t.integer "creater_id"
+    t.text "words"
     t.index ["language_id"], name: "index_playlists_on_language_id"
   end
 

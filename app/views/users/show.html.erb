@@ -8,9 +8,11 @@
   <div class="large-3 columns" style="border:1px solid #000">
   Name: <%= t.name %> <br/>
     Description: <%= t.description %> <br/>
+    Words (should be separated by commas) (*To get output as array ==> t.words.try(:split, ",")): <%= t.words %> <br/>
     <%= link_to 'Edit playlist', edit_playlist_path(t.id) %> <br/> <br/> </div>
   <% end %>
 <% end %> </div>
+
 
 <h4>Adopted:</h4>
 <% current_user.playlists.each do |t| %>
