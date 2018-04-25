@@ -6,7 +6,7 @@
   <% if t.creater_id == current_user.id %>
   Name: <%= t.name %> <br/>
     Description: <%= t.description %> <br/>
-    Words (should be separated by commas): <%= t.words %> <br/>
+    Words (should be separated by commas) (*To get output as array ==> t.words.try(:split, ",")): <%= t.words %> <br/>
     <%= link_to 'Edit playlist', edit_playlist_path(t.id) %> <br/> <br/>
   <% end %>
 <% end %>
