@@ -8,6 +8,12 @@
 
 # languages take in "name"
 
+user = User.new
+user.email = 'admin@berkeley.edu'
+user.password = 'valid_password'
+user.password_confirmation = 'valid_password'
+user.save!
+
 ['Chinese', 'French', 'Japanese', 'Malay', 'Spanish'].each do |name|
   Language.create(
     name: name,
