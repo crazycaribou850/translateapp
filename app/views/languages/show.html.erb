@@ -1,11 +1,21 @@
 <h1> <%= @language.name %> PLAYLISTS </h1>
 
 <% @language.playlists.each do |t| %>
-  <h3><%= t.name %></h3>
-  Description: <%= t.description %> <br/>
-  Hits: <%= t.usercount %>
-  <%= button_to "Check me out!", playlist_path(t.id), :method => :get %>
-  <% if user_signed_in? %>
-    <%= button_to "Adopt me!", adopt_path(t.id, @language.id), :method => :patch %> <br/>
-  <% end %>
+<div class="card">
+  <div class="card-divider" style="background-color: rgb(212,25,55)">
+    <h3>
+      <a href= "<%= playlist_path(t.id) %>" style="color: black">
+        <%= t.name %>
+      </a>
+    </h3>
+  </div>
+
+  <div class="card-section" style="background-color: grey">
+    Description: <%= t.description %> <br/>
+    Hits: <%= t.usercount %>
+    <% if user_signed_in? %>
+      <%= button_to "Adopt me!", adopt_path(t.id, @language.id), :method => :patch %> <br/>
+    <% end %>
+  </div>
+</div>
 <% end %>
