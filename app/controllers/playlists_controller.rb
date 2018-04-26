@@ -11,7 +11,7 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.create(playlist_params)
     @playlist.creater_id = current_user.id
     @playlist.usercount = 1
-    @playlist.words = []
+    @playlist.words = Set.new
     @playlist.save
     current_user.playlists << @playlist
     redirect_to user_path(params[:id])
