@@ -1,7 +1,11 @@
 <%= simple_form_for(@playlisthelper, url: update_playlist_path(@playlist.id)) do |f| %>
   <%= f.input :words, placeholder: "A cool word!" %>
+
+
   <p class="tab"> <%= f.submit 'Add word'%> </br> </p>
-  <p class="tab"> <%= f.submit 'Finish' %> </p>
+  <div class="card-user-profile-button">
+    <a href="<%= update_playlist_path(@playlist.id) %>" class="card-user-profile-button button hollow"> Finish</a>
+  </div>
 <% end %>
 
 <h4> Current words: </h4>
