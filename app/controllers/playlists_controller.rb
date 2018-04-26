@@ -19,31 +19,30 @@ class PlaylistsController < ApplicationController
 
   def edit
      @playlist = Playlist.find(params[:id])
-     session[:return_to] ||= request.referer
   end
 
   def update_main
-    if params[:commit].eql?("Finish")
-      redirect_to user_path(current_user.id)
-    else
-      @playlist = Playlist.find(params[:id])
-      if session.delete(:return_to) == "edit"
-        @playlist.update(name: params[:playlist][:name], description: params[:playlist][:description], language_id: params[:playlist][:language_id])
-      else
-        @playlist.words.add(params[:playlist][:words])
-      end
-      @playlist.save
-      @playlisthelper = Playlist.new
-      @playlisthelper.words = nil
-    end
+    @playlist = Playlist.find(params[:id])
+    @playlist.update(name: params[:playlist][:name], description: params[:playlist][:description], language_id: params[:playlist][:language_id])
+    @playlist.save
+    redirect_to update_rest_path(@playlist.id)
   end
 
-  def update
+  def update_rest
+    @playlist = Playlist.find(params[:id])
+    @playlisthelper = Playlist.new
+    @playlisthelper.words = nil
+  end
+
+  def update_words
     @playlist = Playlist.find(params[:id])
     @playlist.words.add(params[:playlist][:words])
     @playlist.save
-    session[:return_to] ||= request.referer
-    redirect_to update_main_post_path(@playlist.id)
+    if finished?
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to update_rest_path(@playlist.id)
+    end
   end
 
 private
@@ -54,5 +53,4 @@ private
   def finished?
     params[:commit] == "Finish"
   end
-
 end
