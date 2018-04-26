@@ -38,6 +38,7 @@ class PlaylistsController < ApplicationController
       redirect_to user_path(current_user.id)
     else
       redirect_to update_main_path(@playlist.id)
+    end
   end
 
 private
@@ -48,4 +49,5 @@ private
   def finished?
     params[:commit] == "Finish"
   end
+
 end
