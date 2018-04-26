@@ -1,5 +1,9 @@
 <h1><%= current_user.name %>'s Profile</h1>
-<h3>Playlists</h3> <%= link_to 'Create new', new_playlist_path %> <br/>
+
+<div class="card-user-profile-button">
+  <a href="<%= new_playlist_path %>" class="card-user-profile-button button hollow"> Create New!</a>
+</div>
+
 <br/>
 <h4>Created:</h4>
 
@@ -7,19 +11,19 @@
 
 <div class="box">
   <% if t.creater_id == current_user.id %>
-  <p class="card-user-profile-name"> Name: <%= t.name %> </p>
-  <p class="card-user-profile-name"> Description: <%= t.description %> </p>
-  <p class="card-user-profile-info">
-    Word Preview:
-    <!-- REMOVED SCROLL BAR FUNCTIONALITY <div style="height:120px;width:120px;border:1px solid #ccc;overflow:auto;"> -->
-    <% t.words.take(6).each do |a| %>
+  <p class="card-user-profile-name"> <span style="font-weight:bold"> Name: </span> <%= t.name %> </p>
+  <p class="card-user-profile-name"> <span style="font-weight:bold"> Description: </span> <%= t.description %> </p>
+  <p class="card-user-profile-name">
+    <span style="font-weight:bold"> Word Preview: </span>
+    <div style="height:120px;width:290px;border:1px solid #ccc;overflow:auto;">
+    <% t.words.each do |a| %>
     <p class= "tab">
-      <%= a %>
+      <%= a %> <br/>
       </p>
     <% end %>
-  <!-- </div> -->
+  </div>
   </p>
-  <div class="card-user-profile-actions">
+  <div class="card-user-profile-button">
     <a href="<%= edit_playlist_path(t.id) %>" class="card-user-profile-button button hollow"> Edit Playlist</a>
   </div>
   <% end %>
