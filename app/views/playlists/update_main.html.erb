@@ -1,3 +1,4 @@
-<%= simple_form_for(@playlist, url: user_path(current_user.id)) do |f| %>
-  <%= f.input :words %>
+<%= simple_form_for(@playlist, url: update_playlist_path(@playlist.id) do |f| %>
+<%= f.input :word %>
+<%= f.button :submit %>
 <% end %>
