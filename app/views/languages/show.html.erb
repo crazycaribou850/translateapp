@@ -2,7 +2,7 @@
 
 <% @language.playlists.each do |t| %>
 <div class="card">
-  <div class="card-divider" style="background-color: rgb(212,25,55)">
+  <div class="card-divider" style="background-color: #2AAFCB">
     <h3>
       <a href= "<%= playlist_path(t.id) %>" style="color: black">
         <%= t.name %>
@@ -10,15 +10,17 @@
     </h3>
   </div>
 
-  <div class="card-section" style="background-color: grey">
-    Description: <%= t.description %> <br/>
-    Hits: <%= t.usercount %> <br/>
-    Words:
-      <% t.words.each do |a| %>
-      <p class= "tab">
-        <%= a %> <br/>
-        </p>
-      <% end %>
+  <div class="card-section" style="background-color: #61D5EE">
+    <p class="card-user-profile-name"> <span style="font-weight:bold"> Description: </span> <%= t.description %> </p>
+    <p class="card-user-profile-name"> <span style="font-weight:bold"> Hits: </span> <%= t.usercount %> </p>
+    <p class="card-user-profile-name"> <span style="font-weight:bold"> Words: </span> </p>
+    <div style="height:120px;width:290px;border:1px solid #ccc;overflow:auto;">
+    <% t.words.each do |a| %>
+    <p class= "tab">
+      <%= a %> <br/>
+      </p>
+    <% end %>
+  </div>
 
     <% if user_signed_in? %>
       <%= button_to "Adopt me!", adopt_path(t.id, @language.id), :method => :patch %> <br/>
