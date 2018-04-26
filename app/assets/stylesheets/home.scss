@@ -1,0 +1,31 @@
+.language-choice-container {
+  display: inline-block;
+  transition: 150ms;
+  width: 5;
+  float: left;
+  margin: 10px;
+  &:hover {
+    background-color: rgba(0.8, 0.8, 1, 0.05);
+    transform: scale(1.05, 1.05);
+    transform-origin: center;
+  }
+  border-radius: 10px;
+}
+
+.create-submit-btn {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #4c8ef7;
+  color: white;
+  border: 4px solid white;
+  font-size: 24px;
+  transition: 150ms;
+  display: block;
+
+  &:hover {
+    background-color: #659df7;
+    transform: scale(1.05, 1.05);
+    transform-origin: center;
+    cursor: pointer;
+  }
+}
