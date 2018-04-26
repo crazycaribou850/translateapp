@@ -105,8 +105,26 @@
 }
 
 .box {
+    display: inline-block;
     width: 320px;
     padding: 10px;
     border: 5px solid gray;
     margin: 0;
+}
+
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
 }

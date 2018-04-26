@@ -10,12 +10,14 @@
   <p class="card-user-profile-name"> Name: <%= t.name %> </p>
   <p class="card-user-profile-name"> Description: <%= t.description %> </p>
   <p class="card-user-profile-info">
-    Words:
-    <% t.words.each do |a| %>
+    Word Preview:
+    <!-- REMOVED SCROLL BAR FUNCTIONALITY <div style="height:120px;width:120px;border:1px solid #ccc;overflow:auto;"> -->
+    <% t.words.take(6).each do |a| %>
     <p class= "tab">
-      <%= a %> <br/>
+      <%= a %>
       </p>
     <% end %>
+  <!-- </div> -->
   </p>
   <div class="card-user-profile-actions">
     <a href="<%= edit_playlist_path(t.id) %>" class="card-user-profile-button button hollow"> Edit Playlist</a>
