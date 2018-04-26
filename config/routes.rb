@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :languages
   resources :playlists
   resources :users
+  patch '/playlist/:id', to: 'playlists#update_main', as: 'update_main'
   patch '/playlists/:id/', to: 'playlists#update', as: 'update_playlist'
   post '/users/:id', to: 'playlists#create', as: 'playlist_create'
   get '/languages/:id/:language_id', to: 'languages#adopthelper', as: 'adopthelper'

@@ -21,10 +21,14 @@ class PlaylistsController < ApplicationController
      @playlist = Playlist.find(params[:id])
   end
 
-  def update
+  def update_main
     @playlist = Playlist.find(params[:id])
-    @playlist.update(name: params[:playlist][:name], description: params[:playlist][:description], language_id: params[:playlist][:language_id], words: params[:playlist][:words])
-    redirect_to user_path(current_user.id)
+    @playlist.update(name: params[:playlist][:name], description: params[:playlist][:description], language_id: params[:playlist][:language_id])
+    redirect_to update_playlist_path(@playlist.id)
+  end
+
+  def update
+
   end
 
 private
