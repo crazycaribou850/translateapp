@@ -22,19 +22,30 @@ class PlaylistsController < ApplicationController
   end
 
   def update_main
-    @playlist = Playlist.find(params[:id])
-    @playlist.update(name: params[:playlist][:name], description: params[:playlist][:description], language_id: params[:playlist][:language_id])
+    if prev[:action].equals("edit")
+      @playlist = Playlist.find(params[:id])
+      @playlist.update(name: params[:playlist][:name], description: params[:playlist][:description], language_id: params[:playlist][:language_id])
+      @playlisthelper = Playlist.new
+    end
+    @playlisthelper.words = nil
   end
 
   def update
     @playlist = Playlist.find(params[:id])
     @playlist.words.add(params[:playlist][:words])
     @playlist.save
-    redirect_to user_path(current_user.id)
+    if finished?
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to update_main_path(@playlist.id)
   end
 
 private
   def playlist_params
     params.require(:playlist).permit(:name, :description, :language_id)
+  end
+
+  def finished?
+    params[:commit] == "Finish"
   end
 end
