@@ -1,6 +1,6 @@
 <%= simple_form_for(@playlist, url: playlist_create_path(current_user.id)) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :language_id %>
+  <%= f.select :language_id, [["Chinese", 1], ["French", 2], ["Japanese", 3], ["Malay", 4], ["Spanish", 5]] %>
   <%= f.button :submit %>
 <% end %>

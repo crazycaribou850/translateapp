@@ -2,9 +2,13 @@
 <h4> Hits: <%= @playlist.usercount %> </h4>
 <h4> Description: <%= @playlist.description %> </h4>
 <h4> Words:
+  <br/>
   <% @playlist.words.each do |a| %>
     <%= a %>
+    </>       -        </>
+    <font size="5" color="red">
     <%= EasyTranslate.translate(a, :to => @idz) %> <br/>
+    </font>
   <% end %>
   <br/>
 </h4>
