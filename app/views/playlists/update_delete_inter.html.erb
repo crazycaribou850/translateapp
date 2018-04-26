@@ -1,9 +1,12 @@
-<%= simple_form_for(@playlist, url: update_words_path(@playlist.id)) do |f| %>
 <h4> Current words: </h4>
+<%= simple_form_for(@playlisthelper, url: update_delete_path(@playlist.id)) do |f| %>
+  <%= f.input :words, placeholder: "A cool word!" %>
+  <p class="tab"> <%= f.submit 'Delete' %> </p>
+<% end %>
+
 <% @playlist.words.each do |a| %>
   <%= a %> <br/>
-  <%= button_to "Delete", update_delete_path(@playlist.id, a), :method => :patch %>
 <% end %> <br/>
-  <p class="tab"> <%= f.submit 'Add more words' %> </br> </p>
-  <p class="tab"> <%= f.submit 'Finish' %> </p>
-<% end %>
+
+<%= button_to 'Add more words', update_rest_path(@playlist.id), method: :get %>
+<%= button_to 'Finish', user_path(current_user.id), method: :get %>

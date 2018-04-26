@@ -53,19 +53,15 @@ class PlaylistsController < ApplicationController
 
   def update_delete_inter
     @playlist = Playlist.find(params[:id])
-
+    @playlisthelper = Playlist.new
+    @playlisthelper.words = nil
   end
 
-  def update
+  def update_del
     @playlist = Playlist.find(params[:id])
-    @playlist.words.delete(params[:words])
-    if finished?
-      redirect_to user_path(current_user.id)
-    elsif adding?
-      redirect_to update_rest_path(@playlist.id)
-    else
-      redirect_to update_delete_inter_path(@playlist.id)
-    end
+    @playlist.words.delete(params[:playlisthelper][:words])
+    @playlist.save
+    redirect_to update_delete_inter_path(@playlist.id)
   end
 
 private
