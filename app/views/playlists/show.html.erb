@@ -1,3 +1,8 @@
 <h1> <%= @playlist.name %> </h1> </br>
 <h4> Hits: <%= @playlist.usercount %> </h4>
 <h4> Description: <%= @playlist.description %> </h4>
+<h4> Words:
+  <% @playlist.words.each do |a| %>
+    <%= a %> <br/>
+  <% end %> <br/>
+</h4>

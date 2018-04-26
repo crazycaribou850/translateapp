@@ -12,7 +12,14 @@
 
   <div class="card-section" style="background-color: grey">
     Description: <%= t.description %> <br/>
-    Hits: <%= t.usercount %>
+    Hits: <%= t.usercount %> <br/>
+    Words:
+      <% t.words.each do |a| %>
+      <p class= "tab">
+        <%= a %> <br/>
+        </p>
+      <% end %>
+
     <% if user_signed_in? %>
       <%= button_to "Adopt me!", adopt_path(t.id, @language.id), :method => :patch %> <br/>
     <% end %>
