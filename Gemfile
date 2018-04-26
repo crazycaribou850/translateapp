@@ -56,3 +56,4 @@ group :development do
 end
 gem 'simple_form'
 gem 'jquery-rails'
+gem 'easy_translate'
