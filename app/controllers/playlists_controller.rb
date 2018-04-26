@@ -54,4 +54,5 @@ private
   def finished?
     params[:commit] == "Finish"
   end
+
 end
