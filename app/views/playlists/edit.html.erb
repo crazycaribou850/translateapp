@@ -1,6 +1,7 @@
 <%= simple_form_for(@playlist, url: update_main_path(@playlist.id)) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.select :language_id, [["Chinese", 1], ["French", 2], ["Japanese", 3], ["Malay", 4], ["Spanish", 5]] %>
+  <%= f.select :language_id, [["Chinese", 1], ["French", 2], ["Japanese", 3], ["Malay", 4], ["Spanish", 5], ["Thai", 6],
+  ["Korean", 7], ["Italian", 8], ["Tagalog", 9], ["Laotian", 10], ["German", 11], ["Greek", 12], ["Vietnamese", 13], ["Arabic", 14], ["Hindi", 15]] %>
   <%= f.button :submit, 'Continue' %>
 <% end %>

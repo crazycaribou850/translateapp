@@ -1,7 +1,7 @@
 <h3>Welcome to TranslateApp </h3>
 <%= simple_form_for @language, :url => languagehelp_path do |f| %>
   <%= f.collection_radio_buttons(
-    :id, (1..5).map {|id| [id, id]}, :first, :last
+    :id, (1..15).map {|id| [id, id]}, :first, :last
   ) do |b| %>
   <div class="language-choice-container">
     <%= b.label { image_tag("flags/#{b.text}.png") + b.radio_button } %>

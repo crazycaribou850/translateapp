@@ -14,11 +14,12 @@ user = User.new
 user.email = 'admin@berkeley.edu'
 user.password = 'valid_password'
 user.password_confirmation = 'valid_password'
+user.name = 'Admin'
 user.save!
 
 ############ LANGUAGES ############
 
-['Chinese', 'French', 'Japanese', 'Malay', 'Spanish'].each do |name|
+['Chinese', 'French', 'Japanese', 'Malay', 'Spanish', 'Thai', 'Korean', 'Italian', 'Tagalog', 'Laotian', 'German', 'Greek', 'Vietnamese', 'Arabic', 'Hindi' ].each do |name|
   Language.create(
     name: name,
   )
