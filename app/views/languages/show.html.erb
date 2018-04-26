@@ -2,7 +2,7 @@
 
 <% @language.playlists.each do |t| %>
 <div class="card">
-  <div class="card-divider" style="background-color: #2AAFCB">
+  <div class="card-divider" style="background-color: #5387A9">
     <h3>
       <a href= "<%= playlist_path(t.id) %>" style="color: black">
         <%= t.name %>
@@ -10,7 +10,7 @@
     </h3>
   </div>
 
-  <div class="card-section" style="background-color: #61D5EE">
+  <div class="card-section" style="background-color: #748E9F">
     <p class="card-user-profile-name"> <span style="font-weight:bold"> Description: </span> <%= t.description %> </p>
     <p class="card-user-profile-name"> <span style="font-weight:bold"> Hits: </span> <%= t.usercount %> </p>
     <p class="card-user-profile-name"> <span style="font-weight:bold"> Words: </span> </p>
