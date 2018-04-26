@@ -1,6 +1,6 @@
 <h1> <%= @language.name %> PLAYLISTS </h1>
 
-<% @language.playlists.each do |t| %>
+<% @language.playlists.order('usercount DESC').each do |t| %>
 <div class="card">
   <div class="card-divider" style="background-color: #5387A9">
     <h3>
