@@ -27,7 +27,7 @@ end
     description: description,
     usercount: 0,
     language_id: lid,
-    creater_id: cid
+    creater_id: cid,
     words: Set.new
   )
 end
