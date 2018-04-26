@@ -3,6 +3,8 @@
 <h4> Description: <%= @playlist.description %> </h4>
 <h4> Words:
   <% @playlist.words.each do |a| %>
-    <%= a %> <br/>
-  <% end %> <br/>
+    <%= a %>
+    <%= EasyTranslate.translate(a, :to => @idz) %> <br/>
+  <% end %>
+  <br/>
 </h4>

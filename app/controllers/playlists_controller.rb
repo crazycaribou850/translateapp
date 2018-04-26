@@ -1,6 +1,9 @@
 class PlaylistsController < ApplicationController
   def show
     @playlist = Playlist.find(params[:id])
+    @dict = {1 => :zh, 2 => :fr, 3 => :japanese, 4 => :malay, 5 => :spanish}
+    @idz = @dict[@playlist.language_id]
+    EasyTranslate.api_key = "AIzaSyCEhJqO5Mng1qfZ9RA8jWyoi_ZhEoz_hFU"
   end
 
   def new
