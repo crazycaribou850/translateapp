@@ -2,20 +2,20 @@
 <h3>Playlists</h3> <%= link_to 'Create new', new_playlist_path %> <br/>
 <br/>
 <h4>Created:</h4>
-<div class="row">
-<% current_user.playlists.each do |t| %>
-  <% if t.creater_id == current_user.id %>
-  <div class="large-3 columns" style="border:1px solid #000">
-  Name: <%= t.name %> <br/>
-    Description: <%= t.description %> <br/>
-    Words:
-    <% t.words.each do |a| %>
-      <%= a %> <br/>
-    <% end %> <br/>
-    <%= link_to 'Edit playlist', edit_playlist_path(t.id) %> <br/> <br/> </div>
-  <% end %>
-<% end %> </div>
 
+<% current_user.playlists.each do |t| %>
+
+<div class="box">
+  <% if t.creater_id == current_user.id %>
+  <p class="card-user-profile-name"> Name: <%= t.name %> </p>
+  <p class="card-user-profile-name"> Description: <%= t.description %> </p>
+  <p class="card-user-profile-info">  Words: <%= t.words %> </p>
+  <div class="card-user-profile-actions">
+    <a href="<%= edit_playlist_path(t.id) %>" class="card-user-profile-button button hollow"> Edit Playlist</a>
+  </div>
+  <% end %>
+  </div>
+<% end %>
 
 <h4>Adopted:</h4>
 <% current_user.playlists.each do |t| %>
