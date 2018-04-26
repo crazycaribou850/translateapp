@@ -28,7 +28,8 @@ class PlaylistsController < ApplicationController
 
   def update
     @playlist = Playlist.find(params[:id])
-    @playlist.words.add(params[:playlist][:word])
+    @playlist.words.add(params[:playlist][:words])
+    @playlist.save
     redirect_to user_path(current_user.id)
   end
 
