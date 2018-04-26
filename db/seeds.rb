@@ -85,3 +85,41 @@ end
   x.words = y
   x.save
 end
+
+[
+['Word di Melayu', 'Malay Playlist!', 4, 1, ['Hello', 'Mr', 'Good morning', 'Thank you', 'Good bye', 'How is life']],
+['Makan', "Some amazing french food! in Malay!", 4, 1, ['Snail', 'Baguette','Frog', 'Veal', 'Sausage']]
+].each do |name, description, lid, cid, words|
+  x = Playlist.create(
+    name: name,
+    description: description,
+    usercount: 0,
+    language_id: lid,
+    creater_id: cid,
+  )
+  y = Set.new
+  words.each do |w|
+    y.add(w)
+  end
+  x.words = y
+  x.save
+end
+
+[
+['FOOD', 'FOOD!', 5, 1, ['Chicken', 'Duck', 'Beverage', 'Pork', 'Meat', 'corn']],
+['Eet', "Some amazing french food! in Spanish!!", 5, 1, ['Snail', 'Baguette','Frog', 'Veal', 'Sausage']]
+].each do |name, description, lid, cid, words|
+  x = Playlist.create(
+    name: name,
+    description: description,
+    usercount: 0,
+    language_id: lid,
+    creater_id: cid,
+  )
+  y = Set.new
+  words.each do |w|
+    y.add(w)
+  end
+  x.words = y
+  x.save
+end
