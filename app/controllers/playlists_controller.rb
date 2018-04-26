@@ -31,8 +31,8 @@ class PlaylistsController < ApplicationController
         @playlist.update(name: params[:playlist][:name], description: params[:playlist][:description], language_id: params[:playlist][:language_id])
       else
         @playlist.words.add(params[:playlist][:words])
+        @playlist.save
       end
-      @playlist.save
       @playlisthelper = Playlist.new
       @playlisthelper.words = nil
     end
