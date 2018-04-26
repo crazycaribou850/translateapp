@@ -8,11 +8,15 @@
 
 # languages take in "name"
 
+############ ADMIN USER ############
+
 user = User.new
 user.email = 'admin@berkeley.edu'
 user.password = 'valid_password'
 user.password_confirmation = 'valid_password'
 user.save!
+
+############ LANGUAGES ############
 
 ['Chinese', 'French', 'Japanese', 'Malay', 'Spanish'].each do |name|
   Language.create(
@@ -20,14 +24,64 @@ user.save!
   )
 end
 
-# Playlists take in "name", "description", "user count (default 0)", and "language ID"
-[['Polite Chinese', "List of polite chinese words", 1 , 1], ['Rude Chinese', "List of rude chinese words", 1], ['Le French Words', "French playlist!", 2, 1], ['Nihon-go for beginners', "NIHONNESE", 3], 1].each do |name, description, lid, cid|
-  Playlist.create(
+############ PLAYLIST ############
+# "Name", "Description", "User count (default 0)", "Language ID", "Creater ID (default admin)" and an array of words
+
+####### Chinese #######
+
+[
+['Polite Chinese', "List of polite chinese words", 1 , 1, ['Please', 'Thank you very much', 'How much is this', 'How are you doing today']],
+['Chinese Food', "Good chinese food", 1, 1, ['Mixed vegetable rice', 'Pork shredded porridge', 'Soup dumplings']],
+['Bargain for the Gainz', "Good bargains for bargainable goods!", 1, 1, ['One dollar please', 'I only have this much']]
+].each do |name, description, lid, cid, words|
+  x = Playlist.create(
     name: name,
     description: description,
     usercount: 0,
     language_id: lid,
     creater_id: cid,
-    words: Set.new
   )
+  y = Set.new
+  words.each do |w|
+    y.add(w)
+  end
+  x.words = y
+  x.save
+end
+
+[
+['Le French Words', 'French playlist!', 2, 1, ['Hello', 'Mr', 'Good morning', 'Thank you', 'Good bye', 'How is life']],
+['La Note', "Some good french food!", 2, 1, ['Snail', 'Baguette','Frog', 'Veal', 'Sausage']]
+].each do |name, description, lid, cid, words|
+  x = Playlist.create(
+    name: name,
+    description: description,
+    usercount: 0,
+    language_id: lid,
+    creater_id: cid,
+  )
+  y = Set.new
+  words.each do |w|
+    y.add(w)
+  end
+  x.words = y
+  x.save
+end
+
+[
+['Nihon-go for beginners', "Japan food and fun", 3, 1, ['Hello', 'Rice bowl', 'Hot springs']]
+].each do |name, description, lid, cid, words|
+  x = Playlist.create(
+    name: name,
+    description: description,
+    usercount: 0,
+    language_id: lid,
+    creater_id: cid,
+  )
+  y = Set.new
+  words.each do |w|
+    y.add(w)
+  end
+  x.words = y
+  x.save
 end

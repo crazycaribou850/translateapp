@@ -4,7 +4,6 @@
   <a href="<%= new_playlist_path %>" class="card-user-profile-button button hollow"> Create New!</a>
 </div>
 
-<br/>
 <h4>Created:</h4>
 
 <% current_user.playlists.each do |t| %>
@@ -38,6 +37,19 @@
   <div class="box">
   <p class="card-user-profile-name"> <span style="font-weight:bold"> Name: </span> <%= t.name %> </p>
   <p class="card-user-profile-name"> <span style="font-weight:bold"> Description: </span> <%= t.description %> </p>
+  <p class="card-user-profile-name">
+    <span style="font-weight:bold"> Word Preview: </span>
+    <div style="height:120px;width:290px;border:1px solid #ccc;overflow:auto;">
+    <% t.words.each do |a| %>
+    <p class= "tab">
+      <%= a %> <br/>
+      </p>
+    <% end %>
+  </div>
+  </p>
+  <div class="card-user-profile-button">
+    <a href="<%= edit_playlist_path(t.id) %>" class="card-user-profile-button button hollow"> Edit Playlist</a>
+  </div>
   </div>
   <% end %>
 
