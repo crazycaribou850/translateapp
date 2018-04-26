@@ -1,0 +1,9 @@
+<%= simple_form_for(@playlist, url: update_words_path(@playlist.id)) do |f| %>
+<h4> Current words: </h4>
+<% @playlist.words.each do |a| %>
+  <%= a %> <br/>
+  <%= button_to "Delete", update_delete_path(@playlist.id, a), :method => :patch %>
+<% end %> <br/>
+  <p class="tab"> <%= f.submit 'Add more words' %> </br> </p>
+  <p class="tab"> <%= f.submit 'Finish' %> </p>
+<% end %>

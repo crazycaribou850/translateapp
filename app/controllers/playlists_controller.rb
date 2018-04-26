@@ -44,8 +44,27 @@ class PlaylistsController < ApplicationController
     @playlist.save
     if finished?
       redirect_to user_path(current_user.id)
+    elsif deleting?
+      redirect_to update_delete_inter_path(@playlist.id)
     else
       redirect_to update_rest_path(@playlist.id)
+    end
+  end
+
+  def update_delete_inter
+    @playlist = Playlist.find(params[:id])
+
+  end
+
+  def update
+    @playlist = Playlist.find(params[:id])
+    @playlist.words.delete(params[:words])
+    if finished?
+      redirect_to user_path(current_user.id)
+    elsif adding?
+      redirect_to update_rest_path(@playlist.id)
+    else
+      redirect_to update_delete_inter_path(@playlist.id)
     end
   end
 
@@ -56,5 +75,13 @@ private
 
   def finished?
     params[:commit] == "Finish"
+  end
+
+  def deleting?
+    params[:commit] == "Delete words"
+  end
+
+  def adding?
+    params[:commit] == "Add more words"
   end
 end
