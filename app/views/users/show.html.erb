@@ -25,7 +25,7 @@
   </p>
   <div class="card-user-profile-button">
     <a href="<%= edit_playlist_path(t.id) %>" class="card-user-profile-button button hollow"> Edit Playlist</a>
-    <%= button_to "View", playlist_path(t.id), :method => :get %> <br/>
+    <a href="<%= playlist_path(t.id) %>" class="card-user-profile-button button hollow"> View</a>
 </div>
 
 </div>
@@ -49,7 +49,7 @@
     <% end %>
   </div>
   </p>
-  <%= button_to "View", playlist_path(t.id), :method => :get %> <br/>
+  <a href="<%= playlist_path(t.id) %>" class="card-user-profile-button button hollow"> View</a>
   </div>
   <% end %>
 
