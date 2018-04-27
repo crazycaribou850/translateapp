@@ -2,7 +2,7 @@
 Rails Translate App
 
 Team Members: Tommy Poa, Mingjun Lim, Sinjon Santos
-Demo Link: https://drive.google.com/open?id=1VpIhJEmSJ_L2i3cvfIgBzTRCp-uede_Y
+Demo Link: https://youtu.be/TJeYAJjohRg
 
 Idea: An application which allows users to create lists of words that include English and their translations. Users can also adopt pre-built playlists (by other users) and view them from their own profile page
 
