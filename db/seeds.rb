@@ -49,15 +49,15 @@ end
   x.words = y
   x.save
 end
-
 [
-['Le French Words', 'French playlist!', 2, 1, ['Hello', 'Mr', 'Good morning', 'Thank you', 'Good bye', 'How is life']],
-['La Note', "Some good french food!", 2, 1, ['Snail', 'Baguette','Frog', 'Veal', 'Sausage']]
-].each do |name, description, lid, cid, words|
+['Le French Food Yums', 'A complete guide for French food places!', 2, 1, 74, ['Do you serve', 'May I have', 'Bill', 'Glass of water', 'Red wine', 'French onion soup', 'Bread and butter', 'Steak frites', 'Baguette']],
+['Tourist Attractions FAQs', "Things you might need to ask at attractions.", 2, 1, 42, ['Ticket price', 'Opening time', 'Food', 'Waiting time', 'Safe for kids', 'Take pictures', 'Bag deposit']],
+['Directions for a Huge City', "Navigate the world with this playlist!", 2, 1, 100, ['Taxi stop', 'Nearest bus stop', 'Food places to reccommend', 'Car park', 'Map', 'Shopping mall']]
+].each do |name, description, lid, cid, uid, words|
   x = Playlist.create(
     name: name,
     description: description,
-    usercount: 0,
+    usercount: uid,
     language_id: lid,
     creater_id: cid,
   )
@@ -68,6 +68,7 @@ end
   x.words = y
   x.save
 end
+
 
 [
 ['Food and Entertainment!', "Japan food and fun", 3, 1, 45 ['Hello', 'Rice bowl', 'Hot springs', 'Curry', 'Omelette Rice', 'Gyoza', 'Noodles', 'Fried Rice', 'Chicken', 'Playground', 'Electronics', 'Shopping']]
