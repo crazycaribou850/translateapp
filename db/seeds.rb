@@ -70,12 +70,17 @@ end
 end
 
 [
-['Nihon-go for beginners', "Japan food and fun", 3, 1, ['Hello', 'Rice bowl', 'Hot springs']]
-].each do |name, description, lid, cid, words|
+['Food and Entertainment!', "Japan food and fun", 3, 1, 45 ['Hello', 'Rice bowl', 'Hot springs', 'Curry', 'Omelette Rice', 'Gyoza', 'Noodles', 'Fried Rice', 'Chicken', 'Playground', 'Electronics', 'Shopping']]
+['Asking for directions', "Lost?", 3, 1, 77 ['Hello', 'Apologies', 'Can you help me?', 'I am lost', 'Where is the nearest train station', 'how much is a taxi', 'Have you seen my friend', 'How do I get to akihabara', 'Where is the best ramen around here?', 'Directions']]
+['Prepositions', "Basic directions", 3, 1, 21 ['Up', 'Down', 'Left', 'Right', 'Above', 'Beyond', 'Outside', 'Inside', 'Under', 'Around', 'Over', 'Centaur']]
+['Time', "For when you don't have a watch", 3, 1, 59 ['What is the time?', 'When is our next meeting?', 'When are you free?', 'What day is it', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Autumn', 'Spring', 'Winter', 'Summer']]
+
+
+].each do |name, description, lid, cid, uid, words|
   x = Playlist.create(
     name: name,
     description: description,
-    usercount: 0,
+    usercount: uid,
     language_id: lid,
     creater_id: cid,
   )
