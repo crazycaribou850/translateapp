@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/playlists/:id/', to: 'playlists#update_words', as: 'update_words'
   patch '/playlist/:id/', to: 'playlists#update_main', as: 'update_main'
   get '/playlists/:id/interdel', to: 'playlists#update_delete_inter', as: 'update_delete_inter'
-  post '/playlists/:id/', to: 'playlists#update_del', as: 'update_delete'
+  post '/playlists/:id/update_del', to: 'playlists#update_del', as: 'update_delete'
   post '/users/:id', to: 'playlists#create', as: 'playlist_create'
   get '/languages/:id/:language_id', to: 'languages#adopthelper', as: 'adopthelper'
   patch '/languages/:id/:language_id/', to: 'languages#adopt', as: 'adopt'

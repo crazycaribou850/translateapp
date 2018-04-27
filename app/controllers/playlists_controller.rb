@@ -59,7 +59,7 @@ class PlaylistsController < ApplicationController
 
   def update_del
     @playlist = Playlist.find(params[:id])
-    @playlist.words.delete(params[:playlisthelper][:words])
+    @playlist.words.delete(params[:playlist][:words])
     @playlist.save
     redirect_to update_delete_inter_path(@playlist.id)
   end
